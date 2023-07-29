@@ -1,0 +1,34 @@
+:root {
+  --teal: #237893;
+  --error: #dd3030;
+  --success-background: #17dfa4;
+  --gray-icon-text: #222;
+  --yankees-blue: #192149;
+  --gray-subtext: #727272;
+  --navy: #22435e;
+  --title: var(--navy);
+  --dark-mint: #2fb3b4;
+  --blue-main: #95e6e2;
+  --blue-shade-1: #a9e5e2;
+  --blue-shade-2: #bdece9;
+  --blue-shade-3: #d3f2f1;
+  --blue-shade-dark: #3ecbc4;
+  --deep-blue-main: #01313d;
+  --deep-blue-shade-1: #293742;
+  --deep-blue-shade-2: #4a545d;
+  --deep-blue-shade-3: #737a83;
+  --ivory-main: #faf2e9;
+  --ivory-shade-1: #f9f1e8;
+  --ivory-shade-2: #faf4ed;
+  --ivory-shade-3: #fbf6f1;
+  --citron-main: #e6f972;
+  --citron-shade-1: #dcf34b;
+  --citron-shade-2: #ebf0a1;
+  --citron-shade-3: #f0f4bd;
+  --poppy-main: #e06855;
+  --poppy-shade-1: #df7159;
+  --poppy-shade-2: #e68e76;
+  --poppy-shade-3: #eeb09a;
+  --header-background: var(--deep-blue-main);
+  --hinted-text: #6b7078;
+}
