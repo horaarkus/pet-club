@@ -1,5 +1,5 @@
 {
-  "name": "vite-template-redux",
+  "name": "pet-club",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,6 +20,7 @@
     "react-hook-form": "^7.45.2",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.14.2",
+    "vite-plugin-pwa": "^0.16.4",
     "yup": "^1.2.0"
   },
   "devDependencies": {
