@@ -2,13 +2,14 @@ import { FC, useState } from "react"
 import { useForm, Controller } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { loginAction, loginSuccess } from "./loginSlice"
+import { loginAction, setLogin } from "./loginSlice"
 import { AppDispatch, RootState } from "../../app/store"
 import { useNavigate } from "react-router-dom"
 import * as yup from "yup"
 import AppStore from "../../Icons/AppStore"
 import ClosedEye from "../../Icons/ClosedEye"
 import Info from "../../Icons/Info"
+import Loader from "../../ui/Loader/Loader"
 import Mail from "../../Icons/Mail"
 import OpenEye from "../../Icons/OpenEye"
 import PlayStore from "../../Icons/PlayStore"
@@ -40,7 +41,6 @@ const Login: FC = () => {
   const dispatch: AppDispatch = useDispatch()
   const isLoading =
     useSelector((state: RootState) => state.login.status) === "loading"
-  console.log(isLoading, "isLoading")
   // Form
   const {
     handleSubmit,
@@ -61,7 +61,7 @@ const Login: FC = () => {
     dispatch(loginAction(data))
       .then((result: any) => {
         navigate("/dashboard")
-        dispatch(loginSuccess(result.payload.email))
+        dispatch(setLogin())
       })
       .catch((error) => {
         console.error("Login failed:", error)
@@ -163,7 +163,7 @@ const Login: FC = () => {
                     type="submit"
                     disabled={!ifFormValid || isLoading}
                   >
-                    {isLoading ? "Loading..." : "Sign In"}
+                    {isLoading ? <Loader /> : "Sign In"}
                   </button>
                 )}
                 <button
@@ -171,7 +171,7 @@ const Login: FC = () => {
                   className={`${
                     isStep1 ? styles.nextButton : styles.backButton
                   }`}
-                  disabled={!isEmailValid}
+                  disabled={!isEmailValid || isLoading}
                 >
                   {isStep1 ? "NEXT" : "< BACK"}
                 </button>

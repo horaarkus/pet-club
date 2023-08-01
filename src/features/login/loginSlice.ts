@@ -29,15 +29,19 @@ export const loginSlice = createSlice({
   name: "login",
   initialState,
   reducers: {
-    loginSuccess: (state, action) => {
-      state.isLoggedIn = true
-      state.status = "idle"
-      state.email = action.payload.email
-      //
+    setLogin: (state) => {
       localStorage.setItem("loginState", JSON.stringify(state))
+    },
+    loginSuccess: (state, action) => {
+      state.isLoggedIn = action.payload.isLoggedIn
+      state.status = action.payload.status
+      state.email = action.payload.email
     },
     logout: (state) => {
       localStorage.removeItem("loginState")
+      state.isLoggedIn = false
+      state.status = "idle"
+      state.email = ""
     },
   },
   extraReducers: (builder) => {
@@ -56,6 +60,6 @@ export const loginSlice = createSlice({
   },
 })
 
-export const { loginSuccess } = loginSlice.actions
+export const { loginSuccess, setLogin, logout } = loginSlice.actions
 
 export default loginSlice.reducer
